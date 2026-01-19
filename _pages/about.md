@@ -2,8 +2,7 @@
 layout: about
 title: About
 permalink: /
-nav: true
-nav_order: 1
+nav: false
 subtitle: <a href='https://www.motilaloswal.com/'>Motilal Oswal Financial Services</a>, Mumbai, India
 
 profile:
@@ -14,7 +13,7 @@ profile:
     <p>Based in Mumbai</p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+social: false # includes social icons at the bottom of the page
 
 announcements:
   enabled: false # includes a list of news items
