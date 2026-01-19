@@ -1,12 +1,11 @@
 ---
 layout: page
-title: submenus
-nav: true
-nav_order: 8
+title: activities
+nav: false
 dropdown: true
 children:
-  - title: bookshelf
-    permalink: /books/
+  - title: teaching
+    permalink: /teaching/
   - title: divider
   - title: blog
     permalink: /blog/
