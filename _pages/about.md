@@ -30,4 +30,4 @@ I am a Lead Data Scientist at [Motilal Oswal Financial Services](https://www.mot
 
 My research interests lie at the intersection of **Machine Learning**, **Information Retrieval**, and **Recommender Systems**, with a specific focus on user modeling and personalization. I am passionate about developing intelligent systems that understand user preferences and deliver tailored experiences.
 
-I am pursuing an M.Tech from [Liverpool John Moores University](https://www.ljmu.ac.uk/), UK, and hold a B.Tech from [Pandit Deendayal Energy University](https://www.pdpu.ac.in/) (formerly PDPU), India.
+I am pursuing a Masters from [Liverpool John Moores University](https://www.ljmu.ac.uk/), UK, and hold a B.Tech from [Pandit Deendayal Energy University](https://www.pdpu.ac.in/) (formerly PDPU), India.
