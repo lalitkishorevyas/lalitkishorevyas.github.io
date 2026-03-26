@@ -218,6 +218,29 @@ ul.task-list input[type="checkbox"] {
   margin-right: 1rem;
 }
 
+// Mobile: stack profile image above text instead of floating
+@media (max-width: 575.98px) {
+  .profile {
+    float: none !important;
+    text-align: center;
+    margin: 0 auto 1.5rem;
+
+    img {
+      max-width: 60%;
+    }
+
+    .more-info {
+      text-align: center;
+    }
+  }
+
+  .profile.float-right,
+  .profile.float-left {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
 @media (min-width: 576px) {
   .profile {
     width: 30%;
