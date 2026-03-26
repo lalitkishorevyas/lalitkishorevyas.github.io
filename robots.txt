@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://lalitkishorevyas.github.io/sitemap.xml
+Sitemap: https://lalitkishorevyas.com/sitemap.xml
