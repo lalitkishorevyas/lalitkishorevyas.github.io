@@ -2,6 +2,7 @@
 layout: page
 title: activities
 nav: false
+sitemap: false
 dropdown: true
 children:
   - title: teaching
