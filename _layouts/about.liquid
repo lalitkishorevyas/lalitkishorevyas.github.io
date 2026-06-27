@@ -1,6 +1,9 @@
 ---
 layout: default
 ---
+{% if site.serve_schema_org %}
+  {% include person_schema.liquid %}
+{% endif %}
 <div class="post">
   <header class="post-header">
     <h1 class="post-title">

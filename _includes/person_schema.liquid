@@ -1,0 +1,98 @@
+{% comment %}
+  Person JSON-LD ("entity home") for the homepage / about page.
+  Declares a rich schema.org Person so search engines can confidently
+  identify Lalit Kishore Vyas and link all profiles via sameAs.
+  Reuses the same social-link generation logic as metadata.liquid.
+{% endcomment %}
+{% capture author_name %}{{ site.first_name }}{% if site.middle_name %} {{ site.middle_name }}{% endif %} {{ site.last_name }}{% endcapture %}
+
+{% assign sameaslinks = '' | split: ',' %}
+{% for social in site.data.socials %}
+  {% case social[0] %}
+    {% when 'acm_id' %}
+      {% capture link %}https://dl.acm.org/profile/{{ social[1] }}/{% endcapture %}
+      {% assign sameaslinks = sameaslinks | push: link %}
+    {% when 'arxiv_id' %}
+      {% capture link %}https://arxiv.org/a/{{ social[1] }}.html{% endcapture %}
+      {% assign sameaslinks = sameaslinks | push: link %}
+    {% when 'bluesky_url' %}
+      {% assign sameaslinks = sameaslinks | push: social[1] %}
+    {% when 'dblp_url' %}
+      {% assign sameaslinks = sameaslinks | push: social[1] %}
+    {% when 'github_username' %}
+      {% capture link %}https://github.com/{{ social[1] }}{% endcapture %}
+      {% assign sameaslinks = sameaslinks | push: link %}
+    {% when 'gitlab_username' %}
+      {% capture link %}https://gitlab.com/{{ social[1] }}{% endcapture %}
+      {% assign sameaslinks = sameaslinks | push: link %}
+    {% when 'kaggle_id' %}
+      {% capture link %}https://www.kaggle.com/{{ social[1] }}{% endcapture %}
+      {% assign sameaslinks = sameaslinks | push: link %}
+    {% when 'linkedin_username' %}
+      {% capture link %}https://www.linkedin.com/in/{{ social[1] }}{% endcapture %}
+      {% assign sameaslinks = sameaslinks | push: link %}
+    {% when 'medium_username' %}
+      {% capture link %}https://medium.com/@{{ social[1] }}{% endcapture %}
+      {% assign sameaslinks = sameaslinks | push: link %}
+    {% when 'orcid_id' %}
+      {% capture link %}https://orcid.org/{{ social[1] }}{% endcapture %}
+      {% assign sameaslinks = sameaslinks | push: link %}
+    {% when 'research_gate_profile' %}
+      {% capture link %}https://www.researchgate.net/profile/{{ social[1] }}/{% endcapture %}
+      {% assign sameaslinks = sameaslinks | push: link %}
+    {% when 'scholar_userid' %}
+      {% capture link %}https://scholar.google.com/citations?user={{ social[1] }}{% endcapture %}
+      {% assign sameaslinks = sameaslinks | push: link %}
+    {% when 'scopus_id' %}
+      {% capture link %}https://www.scopus.com/authid/detail.uri?authorId={{ social[1] }}{% endcapture %}
+      {% assign sameaslinks = sameaslinks | push: link %}
+    {% when 'semanticscholar_id' %}
+      {% capture link %}https://www.semanticscholar.org/author/{{ social[1] }}{% endcapture %}
+      {% assign sameaslinks = sameaslinks | push: link %}
+    {% when 'wikidata_id' %}
+      {% capture link %}https://www.wikidata.org/wiki/{{ social[1] }}{% endcapture %}
+      {% assign sameaslinks = sameaslinks | push: link %}
+    {% when 'x_username' %}
+      {% capture link %}https://twitter.com/{{ social[1] }}{% endcapture %}
+      {% assign sameaslinks = sameaslinks | push: link %}
+  {% endcase %}
+{% endfor %}
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "{{ site.url }}/#person",
+    "name": "{{ author_name }}",
+    "url": "{{ site.url }}/",
+    {% if site.og_image %}"image": "{{ site.url }}{{ site.og_image }}",{% endif %}
+    "jobTitle": "Lead Data Scientist",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Motilal Oswal Financial Services",
+      "url": "https://www.motilaloswal.com/"
+    },
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Liverpool John Moores University",
+        "url": "https://www.ljmu.ac.uk/"
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Pandit Deendayal Energy University",
+        "url": "https://www.pdpu.ac.in/"
+      }
+    ],
+    "knowsAbout": [
+      "Recommender Systems",
+      "Graph Neural Networks",
+      "Fairness-aware Machine Learning",
+      "Information Retrieval",
+      "User Modeling",
+      "Personalization"
+    ],
+    "description": "{{ site.description | strip_newlines | escape }}"{% if sameaslinks != blank %},
+    "sameAs": {{ sameaslinks | jsonify }}{% endif %}
+  }
+</script>
