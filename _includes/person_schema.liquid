@@ -58,6 +58,13 @@
   {% endcase %}
 {% endfor %}
 
+{% comment %}
+  Wikidata is kept in sameAs for Knowledge Graph entity fusion even though
+  it is intentionally NOT shown as a visible social icon (not useful to human
+  visitors). Hardcoded here because it is omitted from _data/socials.yml.
+{% endcomment %}
+{% assign sameaslinks = sameaslinks | push: "https://www.wikidata.org/wiki/Q140366414" %}
+
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
